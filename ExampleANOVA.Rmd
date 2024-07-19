@@ -12,7 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Antibody Responses
 
-Researchers compared antibody responses in normal and alloxan diabetic mice. Three groups of mice were studies: normal, alloxan diabetic, and alloxan diabetic treated with insulin. Several comparisons are of interest: 
+Researchers compared antibody responses in normal and alloxan diabetic mice. Three groups of mice were studies: normal, alloxan diabetic, and alloxan 
+diabetic treated with insulin. Several comparisons are of interest: 
 	\begin{itemize}
 		\item Does the antibody response of alloxan diabetic mice differ from the antibody response of normal mice?
 		\item Does treating alloxan diabetic mice with insulin affect their antibody response?
@@ -23,7 +24,8 @@ Researchers compared antibody responses in normal and alloxan diabetic mice. Thr
 ## Requiremnets of ANOVA
 
 
-In order to use ANOVA, we need the ANOVA assumptions of normality and homoscedasiticity to be met. To check, included below are the box plots and the QQ plots of all three sets of data, Normal, Alloxan, and Alloxan+insulin. 
+In order to use ANOVA, we need the ANOVA assumptions of normality and homoscedasiticity to be met. To check, included below are the box plots and the
+QQ plots of all three sets of data, Normal, Alloxan, and Alloxan+insulin. 
 
 
 ```{r}
@@ -59,7 +61,13 @@ print(sd(insulin))
 
 ## Analyzing Plots
 
-Looking at the boxplots and what the standard deviation of each sample is, we can see that the normal mice and the alloxan mice are closer in size and have a closer standard deviation, however, the mice treated with insulin has a much smaller standard deviation and it's width is much smaller than the other two. Even though the first two are closer in size, the standard deviation is quite different from each other and based on this, as well as the large difference from the last group of data, it seems less plausible that the assumptions for homoscendastiicity are met. Then, looking at the QQ plots for all three, we can observe that all three plots are not straight lines. They all seem to curve upward. Therefore, it seems unlikely that the given data is normal. Hence, the assumptions of normality and homoscedasticity seem unlikely. Therefore, we next need to take the square root of the data to see if we can use ANOVA on the transformed data.
+Looking at the boxplots and what the standard deviation of each sample is, we can see that the normal mice and the alloxan mice are closer in size and have 
+a closer standard deviation, however, the mice treated with insulin has a much smaller standard deviation and it's width is much smaller than the other two. 
+Even though the first two are closer in size, the standard deviation is quite different from each other and based on this, as well as the large difference 
+from the last group of data, it seems less plausible that the assumptions for homoscendastiicity are met. Then, looking at the QQ plots for all three, we can 
+observe that all three plots are not straight lines. They all seem to curve upward. Therefore, it seems unlikely that the given data is normal. Hence, the 
+assumptions of normality and homoscedasticity seem unlikely. Therefore, we next need to take the square root of the data to see if we can use ANOVA on the 
+transformed data.
 
 
 ```{r}
@@ -86,7 +94,14 @@ print(sd(snormal))
 print(sd(salloxan))
 print(sd(sinsulin))
 ```
-We now can look at the boxplots and what the standard deviation of each sample is for the square root transformed data. We can see that the transformed normal mice data and the transformed alloxan mice data are even closer in size and have a much closer standard deviation. The transformed data for the mice treated with insulin still has a smaller standard deviation and it's width is still smaller than the other two. In this case however, they are all much closer in size than with the non-transformed data. The assumptions of homoscendastiicity being met seem much more plausible with the transformed data. Then, looking at the QQ plots of the transformed data for all three, we can observe that all three plots are smoother than the non-transformed data. The plots for the alloxan and insulin treated mice data especially seem closer to straight line. The normal data however is still quite curved around 0. Therefore, it seems more likely that the square root of the data is normal. Hence, the assumptions of normality and homoscedasticity both seem more plausible in the square root transformed data.
+We now can look at the boxplots and what the standard deviation of each sample is for the square root transformed data. We can see that the transformed 
+normal mice data and the transformed alloxan mice data are even closer in size and have a much closer standard deviation. The transformed data for the mice 
+treated with insulin still has a smaller standard deviation and it's width is still smaller than the other two. In this case however, they are all much closer 
+in size than with the non-transformed data. The assumptions of homoscendastiicity being met seem much more plausible with the transformed data. Then, looking
+at the QQ plots of the transformed data for all three, we can observe that all three plots are smoother than the non-transformed data. The plots for the
+alloxan and insulin treated mice data especially seem closer to straight line. The normal data however is still quite curved around 0. Therefore, it seems 
+more likely that the square root of the data is normal. Hence, the assumptions of normality and homoscedasticity both seem more plausible in the square root
+transformed data.
 
 
 ## ANOVA 

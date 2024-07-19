@@ -12,7 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Steph Curry Shot Distances
 
-Using data provided, we can determine if the average shot distance Curry makes differs between home and away games. The data being used is the shot distance, whether or not he made the shot, and if the shot was done at an away or home game during a season. 
+Using data provided, we can determine if the average shot distance Curry makes differs between 
+home and away games. The data being used is the shot distance, whether or not he made the shot, 
+and if the shot was done at an away or home game during a season. 
 
 ## Plots
 

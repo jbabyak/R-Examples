@@ -1,0 +1,55 @@
+---
+title: "Linear"
+output: html_document
+date: "2024-01-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data
+
+The given data is sampled from a bivariate normal distribution. 
+
+```{r}
+x<-c(66,69,65,63,65,64,62,65,64,59,62)
+y<-c(72,71,66,67,70,68,71,70,73,65,66)
+```
+
+## Linear Regression
+
+We then can compute the sample coefficient of determination:
+
+```{r pressure, echo=FALSE}
+r=cor(x,y)
+rsquare=r^2
+```
+## Prediction
+
+We can use this data in order to determine if there is enough evidence that knowing $x$ will help one predict $y$.
+
+```{r}
+model=lm(y~x)
+summary(model)
+```
+## Summary
+
+Then, since $p=0.07442>\alpha=0.05$ we cannot say for certain that knowing $x$ helps one predict $y.$
+
+Using this result, we can construct a $90 \%$ confidence interval for the slope of the population regression line for predicting $y$ from $x$.
+
+In order to construct a confidence interval, we will need the formula: 
+ \[\hat{\beta_1} \pm qt(0.95, \ df=9)*se(\hat{\beta_1})\]
+ where $\hat{\beta_1}$ is the estimated slope of the regression line and $se$ is the standard error. For $s_x=sd(x)=2.57$, $s_y=sd(y)=2.72$, $n=11$, and $r=0.558$, the standard error is,
+ \begin{align*}
+     se(\hat{\beta_1}) &= \frac{s_y}{s_x}\sqrt{\frac{1-r^2}{n-2}} \\
+     &=\frac{2.72}{2.57}\sqrt{\frac{1-0.311}{11-2}} \\
+     &= 0.2928
+ \end{align*}
+ 
+ Then, 
+ $$\hat{\beta_1} = r \frac{s_y}{s_x} = 0.5909$$
+ Giving us,
+ \[\hat{\beta_1} \pm qt(0.95, \ df=9)*se(\hat{\beta_1}) = 0.5909 \pm 0.5367354864 \]
+ Therefore, a 0.90-level confidence interval for the slope of the population regression line for predicting $y$ from $x$ is (0.0542,1.128). 
